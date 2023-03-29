@@ -13,24 +13,24 @@ let chance = document.getElementById("chance");
 function addCard()
 {
     let newCard= Math.floor(Math.random()*14);
-    console.log("newCard = "+newCard);
+    console.log("newCard = "+newCard+ " "+ a[newCard][0]);
     var d1="<img src='";
     var d2="' alt='test' width='150px' height='200px'/>";
     
     let val=0;
-    if(Math.floor(newCard/4)==0)
+    if(a[newCard][0]=='A')
     {
         val=11;
     }
-    else if(newCard/4<9)
+    else if(Number(a[newCard][0])>=2 && Number(a[newCard][0])<=9)
     {
-        val=Number((Math.floor(newCard/4))+1);
+        val=Number(a[newCard][0]);
     }
     else
     {
         val=10;
     }
-    
+    console.log("val = ",val);
 
     if(total+val>21)
     {
@@ -45,15 +45,18 @@ function addCard()
     {
         total+=val;
         card.innerHTML += d1+arr[newCard]+d2;
-        sum.textContent = "sum: "+ total;
+        sum.textContent = "Sum: "+ total;
     }
     else
     {
         total+=val;
         card.innerHTML += d1+arr[newCard]+d2; 
-        sum.textContent = total;
+        sum.textContent = "Sum: "+total;
         chance.innerHTML="";
-        result.innerHTML+="<h1>Congratulation! You won the Game! 🥳<h1>"
+        result.innerHTML+="<h1>Congratulation! You won the Game! 🥳<h1>";
         console.log("total = "+total+" WON! ");
     }
+    a.splice(newCard, 1);
+    arr.splice(newCard, 1);
+
 }
