@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(5, 103, 5);
+}
+.heading{
+    background-color: yellow;
+    font-weight: bold;
+    width:300px;
+    display:flex;
+    justify-content: center;
+}
